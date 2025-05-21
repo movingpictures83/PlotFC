@@ -30,6 +30,8 @@ dat = readRDS(paste(pfix, parameters["data", 2], sep="/"))
 
 ## ----tx2----------------------------------------------------------------------
 meta$fcsign[meta$fcstatus == "off.on"] <- NA
+#print(str(dat))
+write.csv(dat@quantData$rsem, paste(outputfile, "csv", sep="."))
 plotFC(dat,meta$positive,meta$fcsign,ylim=c(0,1.2))
 
 }
